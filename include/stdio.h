@@ -8,7 +8,9 @@
 #define STDIO_H_
 
 #include <stddef.h>
+#include <stdarg.h>
 
 size_t printf(const char *string, ...);
+int vsprintf(char *buf, const char *fmt, va_list args);
 
 #endif /* STDIO_H_ */
