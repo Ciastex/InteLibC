@@ -4,8 +4,9 @@
  *
  * * * */
 #include <stddef.h>
+#include <stdint.h>
 
-void *memset(void *buffer, int value, size_t length) {
+void *memset(void *buffer, int32_t value, size_t length) {
     char *buf = (char *)buffer;
 
     for(size_t i = 0;  i < length; i++) {
