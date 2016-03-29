@@ -14,7 +14,7 @@
     #define NULL ((void *)0)
 #endif
 
-void *memchr(const void *source, int32_t target, size_t length)
+void *memchr(const void *source, int32_t target, size_t length);
 void *memcpy(void *destination, const void *source, size_t length);
 void *memmove(void *destination, const void *source, size_t length);
 void *memset(void *buffer, int32_t value, size_t length);

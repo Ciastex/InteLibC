@@ -19,6 +19,6 @@ char *strncat(char *destination, const char *source, size_t length) {
     }
     *destination = '\0';
 
-    return *tmp_dest;
+    return tmp_dest;
 }
 
