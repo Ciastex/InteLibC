@@ -86,7 +86,7 @@ static char * number(char * str, int num, int base, int size, int precision
     return str;
 }
 
-int vsprintf(char *buf, const char *fmt, va_list args)
+size_t vsprintf(char *buf, const char *fmt, va_list args)
 {
     int len;
     int i;
@@ -170,8 +170,9 @@ int vsprintf(char *buf, const char *fmt, va_list args)
             if (!(flags & LEFT))
                 while (len < field_width--)
                     *str++ = ' ';
-            for (i = 0; i < len; ++i)
-                *str++ = *s++;
+            for (i = 0; i < len; ++i) {
+            	*str++ = *s++;
+            }
             while (len < field_width--)
                 *str++ = ' ';
             break;
@@ -180,6 +181,11 @@ int vsprintf(char *buf, const char *fmt, va_list args)
             str = number(str, va_arg(args, unsigned long), 8,
                 field_width, precision, flags);
             break;
+
+        case 'b':
+        	str = number(str, va_arg(args, unsigned long), 2,
+        		field_width, precision, flags);
+        	break;
 
         case 'p':
             if (field_width == -1) {

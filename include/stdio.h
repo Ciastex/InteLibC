@@ -11,6 +11,7 @@
 #include <stdarg.h>
 
 size_t printf(const char *string, ...);
-int vsprintf(char *buf, const char *fmt, va_list args);
+size_t sprintf(char *buffer, const char *string, ...);
+size_t vsprintf(char *buf, const char *fmt, va_list args);
 
 #endif /* STDIO_H_ */

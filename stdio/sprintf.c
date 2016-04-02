@@ -1,8 +1,8 @@
 /*
- * File name: printf.c
+ * File name: sprintf.c
  * Description: Part of the standard input/output interface implementation.
- *
- * * * */
+ *  
+ * * * * */
 #include <stddef.h>
 #include <stdint.h>
 #include <stdarg.h>
@@ -10,19 +10,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-extern void tty_write(const char *string);
-
-size_t printf(const char *str, ...) {
+size_t sprintf(char *buffer, const char *string, ...) {
     char *output = 0;
     uint32_t length = 0;
 
     va_list args;
-    va_start(args, str);
+    va_start(args, string);
 
-    length = vsprintf(output, str, args);
+    length = vsprintf(output, string, args);
 
     va_end(args);
-    tty_write((const char *)output);
-
     return length;
 }
