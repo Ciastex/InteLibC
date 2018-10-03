@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-extern void tty_write(const char *string);
+extern void tty_write(uint8_t terminal_index, const char *string);
 
 size_t printf(const char *str, ...) {
     char *output = 0;
@@ -22,7 +22,7 @@ size_t printf(const char *str, ...) {
     length = vsprintf(output, str, args);
 
     va_end(args);
-    tty_write((const char *)output);
+    tty_write(-1, (const char *)output);
 
     return length;
 }
